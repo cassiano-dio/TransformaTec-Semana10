@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Exemplo de Promise()</h2>
+
+    <p>Esperar segundos para executar a função.</p>
+
+<h1 id="demo"></h1>
+
+<script>
+//Criação da promise
+const minhaPromise = new Promise(
+    //Função com parâmetros para receber os resultados de sucesso ou rejeição
+    function(sucesso, rejeita) {
+        setTimeout(function(){ 
+            resultado("I love You !!"); 
+        }, 3000);
+    }
+);
+
+minhaPromise.then(function(value) {
+    document.getElementById("demo").innerHTML = value;
+});
+</script>
+
+</body>
+</html>
