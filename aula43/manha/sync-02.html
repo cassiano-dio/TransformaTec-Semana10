@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p>Calcular um resultado</p>
+
+<p id="demo"></p>
+
+<input type="submit" onclick="myCalculator()" value="Calcular">
+
+<script>
+
+function myCalculator() {
+  let num1 = 2
+  let num2 = 4
+  let sum = num1 + num2;
+  myDisplayer(sum)
+}
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+</script>
+
+</body>
+</html>
