@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container" id="container">
+
+
+        <p class="text divs" id="p1">
+            Título
+        </p>
+
+        
+        <div class="forms divs" id="forms">
+
+            <input type="text" name="name" id="name" placeholder="Nome" value="Cassiano">
+            <input type="text" name="age" id="age" placeholder="Idade">
+
+        </div>
+
+        <div class="submit" id="submit">
+            <!-- disparando um evento onclick ao clicar no botão -->
+            <button id="submit" onclick="hello()" >Enviar</button>
+        </div>
+        <div id="end" class="footer">
+            <p>Fim</p>
+        </div>
+    </div>
+
+    <script>
+
+        function oi(){
+            console.log("Funcao oi")
+        }
+
+        function hello(){
+
+            
+            var name = document.getElementById("name").value
+            var age = document.getElementById("age").value
+            console.log("Olá", name, " sua idade é: ", age)
+
+            oi()
+
+
+        }
+
+    </script>
+</body>
+</html>

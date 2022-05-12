@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: monospace;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0px;
+            background-color: cornflowerblue;
+            color: #fff;
+        }
+        div {
+            width: 700px;
+        }
+        p, select, option,input[type="number"],input[type="submit"] {
+            width: 50%;
+            padding: 20px 5px;
+            font-weight: 900;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #22438C;
+            border: 1px solid #aaa;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d">
+        <input id="input1" type="number" placeholder="Operando 1">
+        
+        <input id="input2" type="number" placeholder="Operando 2">
+        <select name="" id="ops">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <!-- <input id ="sum" type="submit" onclick="add()" value="+">
+        <input type="submit" onclick="sub()" value="-">
+        <input type="submit" onclick="mul()" value="*">
+        <input type="submit" onclick="div()" value="/"> -->
+        <input type="submit" value="=" onclick="calc()">
+        <input type="submit" onclick="reset()" value="C">
+    </div>
+    
+</body>
+<script>
+
+    function calc(){
+
+        var res = document.getElementById("result");
+        var js = document.getElementById("json");
+        if(res && js){
+            res.parentNode.removeChild(res);
+            js.parentNode.removeChild(js);}
+
+        var op = document.getElementById("ops").value
+
+        var a = document.getElementById("input1").value;
+        var b = document.getElementById("input2").value;
+
+
+        switch(op){
+            case '+':
+                var c = parseInt(a) + parseInt(b);
+                break;
+            case '-':
+                var c = parseInt(a) - parseInt(b);
+                break;
+            case '*':
+                var c = parseInt(a) * parseInt(b);
+                break;
+            case '/':
+                var c = parseInt(a) / parseInt(b);
+                break;
+        }
+
+        var node = document.createElement("p");
+        node.setAttribute("id", "result");
+
+        var textnode = document.createTextNode(c);
+
+        node.appendChild(textnode);
+        node.style.fontSize="24px"
+        document.getElementById("d").appendChild(node);
+
+        var obj = {
+            "number1": a,
+            "op": "+",
+            "number2": b
+        }
+
+        var node = document.createElement("p");
+        var textnode = document.createTextNode(JSON.stringify(obj));
+        node.setAttribute("id", "json");
+        node.appendChild(textnode);
+        node.style.fontSize="14px"
+        document.getElementById("d").appendChild(node);
+    }
+
+
+    function reset(){
+
+       document.getElementById("input1").value = "";
+       document.getElementById("input2").value = "";
+
+       var res = document.getElementById("result");
+        var js = document.getElementById("json");
+        if(res && js){
+            res.parentNode.removeChild(res);
+            js.parentNode.removeChild(js);
+        }
+
+    }
+
+
+
+
+
+
+    // function add() {
+    //     //e.preventDefault()
+    //     const res = document.getElementById("result");
+    //     const js = document.getElementById("json");
+    //     if(res && js)
+    //         element.parentNode.removeChild(res);
+    //         element.parentNode.removeChild(js);
+
+    //     var a = document.getElementById("input1").value;
+    //     var b = document.getElementById("input2").value;
+    //     var c = parseInt(a) + parseInt(b);
+
+    //     var node = document.createElement("p");
+    //     node.setAttribute("id", "result");
+    //     var textnode = document.createTextNode(c);
+    //     node.appendChild(textnode);
+    //     node.style.fontSize="24px"
+    //     document.getElementById("d").appendChild(node);
+
+    //     var obj = {
+    //         "number1": a,
+    //         "op": "+",
+    //         "number2": b
+    //     }
+
+    //     var node = document.createElement("p");
+    //     node.setAttribute("id", "json");
+    //     var textnode = document.createTextNode(JSON.stringify(obj));
+    //     node.appendChild(textnode);
+    //     node.style.fontSize="14px"
+    //     document.getElementById("d").appendChild(node);
+
+    // }
+    // function sub() {
+    //     const element = document.querySelector("p");
+    //     if(element)
+    //         element.parentNode.removeChild(element);
+    //     var a = document.getElementById("input1").value;
+    //     var b = document.getElementById("input2").value;
+    //     var c = parseInt(a) - parseInt(b);
+    //     const node = document.createElement("p");
+    //     const textnode = document.createTextNode(c);
+    //     node.appendChild(textnode);
+    //     node.style.fontSize="24px"
+    //     document.getElementById("d").appendChild(node);
+    // }
+    // function mul() {
+    //     const element = document.querySelector("p");
+    //     if(element)
+    //         element.parentNode.removeChild(element);
+    //     var a = document.getElementById("input1").value;
+    //     var b = document.getElementById("input2").value;
+    //     var c = parseInt(a) * parseInt(b);
+    //     const node = document.createElement("p");
+    //     const textnode = document.createTextNode(c);
+    //     node.appendChild(textnode);
+    //     node.style.fontSize="24px"
+    //     document.getElementById("d").appendChild(node);
+    // }
+    // function div() {
+    //     const element = document.querySelector("p");
+    //     if(element)
+    //         element.parentNode.removeChild(element);
+    //     var a = document.getElementById("input1").value;
+    //     var b = document.getElementById("input2").value;
+    //     var c = parseInt(a) / parseInt(b);
+    //     const node = document.createElement("p");
+    //     const textnode = document.createTextNode(c);
+    //     node.appendChild(textnode);
+    //     node.style.fontSize="24px"
+    //     document.getElementById("d").appendChild(node);
+    // }
+</script>
+
+</html>

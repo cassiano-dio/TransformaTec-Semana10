@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="name">
+        <input type="submit" name="btn" id="btn" onclick="setName()" value="Registrar">
+        <input type="submit" name="btn" id="btn" value="Remover" onclick="remove()">
+    </div>
+
+</body>
+
+    <script>
+
+        function setName(){
+            var name = document.getElementById("name").value
+            var para = document.createElement("p")
+            para.innerHTML = name
+            para.style.color = "cadetblue"
+            para.style.fontFamily = "Arial"
+            para.setAttribute("id","para")
+            document.getElementById("container").appendChild(para)
+        }
+
+        function remove(){
+            var para = document.getElementById("para")
+            para.parentNode.removeChild(para)
+        }
+    </script>
+
+</html>
